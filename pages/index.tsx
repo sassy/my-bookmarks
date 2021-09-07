@@ -1,10 +1,12 @@
 import fs from 'fs'
-import type { NextPage, GetStaticProps } from 'next'
+import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import { Box, Center, Flex, Spacer } from "@chakra-ui/react"
+import { Box, Center, Flex } from "@chakra-ui/react"
 
 
-const Home: NextPage<any> = (props) => {
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+
+const Home: NextPage<any> = (props: Props) => {
   return (
     <div>
       <Head>
@@ -21,7 +23,7 @@ const Home: NextPage<any> = (props) => {
 
       <main>
         <Flex color="white">
-        {props.bookmarks.map((item) => (
+        {props.bookmarks.map((item: string) => (
           <Box bg="#59C7F0" w="80%" p={4} color="black">
             <a href={item}>{item}</a>
           </Box>
