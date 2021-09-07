@@ -24,7 +24,7 @@ const Home: NextPage<any> = (props: Props) => {
       <main>
         <Flex color="white">
         {props.bookmarks.map((item: string) => (
-          <Box bg="#59C7F0" w="80%" p={4} color="black">
+          <Box key={item} bg="#59C7F0" w="80%" p={4} color="black">
             <a href={item}>{item}</a>
           </Box>
         ))}
